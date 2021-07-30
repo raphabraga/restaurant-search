@@ -1,7 +1,17 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
+export const Container = styled.aside`
+  background-color: ${(props) => props.theme.colors.background};
+  width: 360px;
+  height: 100vh;
+  overflow-y: auto;
 `;
 
-export default Container;
+export const SearchBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
+  background-color: #ffffff;
+  align-items: center;
+`;
