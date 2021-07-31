@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Slider from "react-slick";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -36,4 +37,17 @@ export const CarouselTitle = styled.h1`
   font-weight: bold;
   line-height: 29px;
   margin: 16px 0;
+`;
+
+export const Carousel = styled(Slider)`
+  .slick-slide {
+    margin-right: 16px;
+  }
+`;
+
+export const PhotoTitle = styled.span`
+  color: black;
+  font-family: ${(props) => props.theme.fonts.primary};
+  font-size: 16px;
+  margin: 30px;
 `;

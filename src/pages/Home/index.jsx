@@ -6,11 +6,12 @@ import {
   Wrapper,
   Map,
   CarouselTitle,
+  Carousel,
 } from "./styles";
 import logo from "../../assets/logo.svg";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import Slider from "react-slick";
+import { Card } from "../../components/index";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,14 +44,9 @@ const Home = () => {
             />
           </TextField>
           <CarouselTitle>Close to you</CarouselTitle>
-          <Slider {...settings}>
-            <img src={logo} alt="1" />
-            <img src={logo} alt="1" />
-            <img src={logo} alt="1" />
-            <img src={logo} alt="1" />
-            <img src={logo} alt="1" />
-            <img src={logo} alt="1" />
-          </Slider>
+          <Carousel {...settings}>
+            <Card photo={logo} title="Restaurant Name" />
+          </Carousel>
         </SearchBox>
       </Container>
       <Map />
