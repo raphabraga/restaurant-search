@@ -11,7 +11,7 @@ import {
 import logo from "../../assets/logo.svg";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import { Card } from "../../components/index";
+import { Card, RestaurantCard } from "../../components/index";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,6 +47,7 @@ const Home = () => {
           <Carousel {...settings}>
             <Card photo={logo} title="Restaurant Name" />
           </Carousel>
+          <RestaurantCard />
         </SearchBox>
       </Container>
       <Map />
