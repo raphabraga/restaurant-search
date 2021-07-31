@@ -35,3 +35,10 @@ export const RCardAddress = styled.span`
   font-size: 16px;
   line-height: 29px;
 `;
+
+export const RCardPhoto = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+`;
