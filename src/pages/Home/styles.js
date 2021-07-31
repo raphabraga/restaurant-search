@@ -23,9 +23,17 @@ export const SearchBox = styled.div`
   padding: 15px;
   justify-content: center;
   background-color: #ffffff;
-  align-items: center;
 `;
 
 export const Logo = styled.img`
   margin-bottom: 15px;
+`;
+
+export const CarouselTitle = styled.h1`
+  font-family: ${(props) => props.theme.fonts.primary};
+  color: ${(props) => props.theme.colors.text};
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  margin: 16px 0;
 `;
