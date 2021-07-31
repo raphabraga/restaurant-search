@@ -13,3 +13,25 @@ export const StyRestaurantCard = styled.div`
     background-color: ${(props) => props.theme.colors.background};
   }
 `;
+
+export const RestaurantInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RCardTitle = styled.span`
+  margin-bottom: 10px;
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.primary};
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: bold;
+`;
+
+export const RCardAddress = styled.span`
+  margin-bottom: 10px;
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.primary};
+  font-size: 16px;
+  line-height: 29px;
+`;
