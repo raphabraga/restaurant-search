@@ -11,10 +11,11 @@ import {
 import logo from "../../assets/logo.svg";
 import TextField, { Input } from "@material/react-text-field";
 import MaterialIcon from "@material/react-material-icon";
-import { Card, RestaurantCard } from "../../components/index";
+import { Card, RestaurantCard, Modal } from "../../components/index";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [modalOpened, setModalOpened] = useState(false);
 
   const settings = {
     dots: false,
@@ -51,6 +52,10 @@ const Home = () => {
         </SearchBox>
       </Container>
       <Map />
+      <Modal
+        open={modalOpened}
+        onClose={() => setModalOpened(!modalOpened)}
+      ></Modal>
     </Wrapper>
   );
 };
