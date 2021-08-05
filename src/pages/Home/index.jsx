@@ -13,7 +13,8 @@ import MaterialIcon from '@material/react-material-icon';
 import { Card, RestaurantCard, Modal, Map } from '../../components/index';
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [query, setQuery] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
 
   const settings = {
@@ -24,6 +25,12 @@ const Home = () => {
     slidesToScroll: 4,
     adaptiveHeight: true,
   };
+
+  function handleKeyPressed(e) {
+    if (e.key === 'Enter') {
+      setQuery(inputValue);
+    }
+  }
 
   return (
     <Wrapper>
@@ -36,10 +43,10 @@ const Home = () => {
             trailingIcon={<MaterialIcon role="button" icon="search" />}
           >
             <Input
-              value={searchQuery}
+              value={inputValue}
+              onKeyPress={handleKeyPressed}
               onChange={(e) => {
-                console.log(searchQuery);
-                return setSearchQuery(e.target.value);
+                return setInputValue(e.target.value);
               }}
             />
           </TextField>
@@ -50,7 +57,7 @@ const Home = () => {
           <RestaurantCard />
         </SearchBox>
       </Container>
-      <Map />
+      <Map query={query} />
       <Modal
         open={modalOpened}
         onClose={() => setModalOpened(!modalOpened)}
