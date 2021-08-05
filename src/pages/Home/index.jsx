@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Container,
   SearchBox,
   Logo,
   Wrapper,
-  Map,
   CarouselTitle,
   Carousel,
-} from "./styles";
-import logo from "../../assets/logo.svg";
-import TextField, { Input } from "@material/react-text-field";
-import MaterialIcon from "@material/react-material-icon";
-import { Card, RestaurantCard, Modal } from "../../components/index";
+} from './styles';
+import logo from '../../assets/logo.svg';
+import TextField, { Input } from '@material/react-text-field';
+import MaterialIcon from '@material/react-material-icon';
+import { Card, RestaurantCard, Modal, Map } from '../../components/index';
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [modalOpened, setModalOpened] = useState(false);
 
   const settings = {

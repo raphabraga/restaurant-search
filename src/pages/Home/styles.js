@@ -1,14 +1,9 @@
-import styled from "styled-components";
-import Slider from "react-slick";
+import styled from 'styled-components';
+import Slider from 'react-slick';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-export const Map = styled.div`
-  background-color: red;
-  width: 500px;
 `;
 
 export const Container = styled.aside`
