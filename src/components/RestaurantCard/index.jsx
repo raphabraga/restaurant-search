@@ -7,7 +7,7 @@ import {
   RCardPhoto,
 } from './styles';
 import ReactStars from 'react-rating-stars-component';
-import logo from '../../assets/logo.svg';
+import notRendered from '../../assets/not-rendered.png';
 
 const RestaurantCard = ({ restaurant }) => (
   <StyRestaurantCard>
@@ -23,7 +23,7 @@ const RestaurantCard = ({ restaurant }) => (
       <RCardAddress>{restaurant.vicinity}</RCardAddress>
     </RestaurantInfo>
     <RCardPhoto
-      src={restaurant.photos ? restaurant.photos[0].getUrl() : null}
+      src={restaurant.photos ? restaurant.photos[0].getUrl() : notRendered}
       alt=""
     ></RCardPhoto>
   </StyRestaurantCard>

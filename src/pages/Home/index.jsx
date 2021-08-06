@@ -8,6 +8,7 @@ import {
   Carousel,
 } from './styles';
 import logo from '../../assets/logo.svg';
+import notRendered from '../../assets/not-rendered.png';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import { Card, RestaurantCard, Modal, Map } from '../../components/index';
@@ -21,6 +22,7 @@ const Home = () => {
   const settings = {
     dots: false,
     infinite: true,
+    autoplay: true,
     speed: 300,
     slidesToShow: 4,
     slidesToScroll: 4,
@@ -56,7 +58,7 @@ const Home = () => {
             {restaurants.map((el) => (
               <Card
                 key={el.place_id}
-                photo={el.photos ? el.photos[0].getUrl() : null}
+                photo={el.photos ? el.photos[0].getUrl() : notRendered}
                 title={el.name}
               />
             ))}

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyRestaurantCard = styled.div`
   display: flex;
@@ -23,8 +23,8 @@ export const RCardTitle = styled.span`
   margin-bottom: 10px;
   color: ${(props) => props.theme.colors.text};
   font-family: ${(props) => props.theme.fonts.primary};
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 12px;
+  line-height: 14px;
   font-weight: bold;
 `;
 
@@ -32,8 +32,8 @@ export const RCardAddress = styled.span`
   margin-bottom: 10px;
   color: ${(props) => props.theme.colors.text};
   font-family: ${(props) => props.theme.fonts.primary};
-  font-size: 16px;
-  line-height: 29px;
+  font-size: 10px;
+  line-height: 14px;
 `;
 
 export const RCardPhoto = styled.img`

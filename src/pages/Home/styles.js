@@ -36,13 +36,14 @@ export const CarouselTitle = styled.h1`
 
 export const Carousel = styled(Slider)`
   .slick-slide {
-    margin-right: 16px;
+    margin-right: 30px;
   }
 `;
 
 export const PhotoTitle = styled.span`
-  color: black;
+  color: white;
   font-family: ${(props) => props.theme.fonts.primary};
-  font-size: 16px;
-  margin: 30px;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 3px 0;
 `;

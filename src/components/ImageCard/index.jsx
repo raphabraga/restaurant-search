@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { PhotoTitle } from "../../pages/Home/styles";
+import React from 'react';
+import styled from 'styled-components';
+import { PhotoTitle } from '../../pages/Home/styles';
 
 const Card = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column-reverse;
   padding: 5px;
   width: 90px;
   height: 90px;
