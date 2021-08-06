@@ -9,8 +9,8 @@ import {
 import ReactStars from 'react-rating-stars-component';
 import notRendered from '../../assets/not-rendered.png';
 
-const RestaurantCard = ({ restaurant }) => (
-  <StyRestaurantCard>
+const RestaurantCard = ({ restaurant, onClick }) => (
+  <StyRestaurantCard onClick={onClick}>
     <RestaurantInfo>
       <RCardTitle>{restaurant.name}</RCardTitle>
       <ReactStars

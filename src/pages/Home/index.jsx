@@ -6,6 +6,8 @@ import {
   Wrapper,
   CarouselTitle,
   Carousel,
+  ModalTitle,
+  ModalContent,
 } from './styles';
 import logo from '../../assets/logo.svg';
 import notRendered from '../../assets/not-rendered.png';
@@ -17,8 +19,11 @@ import { useSelector } from 'react-redux';
 const Home = () => {
   const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState(null);
+  const [placeId, setPlaceId] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
-  const { restaurants } = useSelector((state) => state.restaurants);
+  const { restaurants, selectedRestaurant } = useSelector(
+    (state) => state.restaurants
+  );
   const settings = {
     dots: false,
     infinite: true,
@@ -33,6 +38,11 @@ const Home = () => {
     if (e.key === 'Enter') {
       setQuery(inputValue);
     }
+  }
+
+  function handleOpenModal(placeId) {
+    setPlaceId(placeId);
+    setModalOpened(true);
   }
 
   return (
@@ -64,15 +74,27 @@ const Home = () => {
             ))}
           </Carousel>
           {restaurants.map((el) => (
-            <RestaurantCard key={el.place_id} restaurant={el} />
+            <RestaurantCard
+              onClick={() => handleOpenModal(el.place_id)}
+              key={el.place_id}
+              restaurant={el}
+            />
           ))}
         </SearchBox>
       </Container>
-      <Map query={query} />
-      <Modal
-        open={modalOpened}
-        onClose={() => setModalOpened(!modalOpened)}
-      ></Modal>
+      <Map query={query} placeId={placeId} />
+      <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
+        <ModalTitle>{selectedRestaurant?.name}</ModalTitle>
+        <ModalContent>
+          {selectedRestaurant?.formatted_phone_number}
+        </ModalContent>
+        <ModalContent>{selectedRestaurant?.formatted_address}</ModalContent>
+        <ModalContent>
+          {selectedRestaurant?.opening_hours?.open_now
+            ? 'Aberto agora :)'
+            : 'Fechado nesse momento :('}
+        </ModalContent>
+      </Modal>
     </Wrapper>
   );
 };

@@ -47,3 +47,22 @@ export const PhotoTitle = styled.span`
   line-height: 16px;
   margin: 3px 0;
 `;
+
+export const ModalTitle = styled.div`
+  margin-bottom: 10px;
+  letter-spacing: 0.11px;
+  font-family: props => props.theme.fonts.primary;
+  color: props => props.theme.colors.text;
+  line-heigth: 29px;
+  font-size: 24px;
+  font-weigth: bold;
+`;
+
+export const ModalContent = styled.div`
+  margin-bottom: 10px;
+  font-family: props => props.theme.fonts.primary;
+  color: props => props.theme.colors.text;
+  line-heigth: 18px;
+  font-size: 15px;
+  font-weigth: normal;
+`;
