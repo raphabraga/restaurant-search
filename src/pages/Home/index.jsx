@@ -13,7 +13,13 @@ import logo from '../../assets/logo.svg';
 import notRendered from '../../assets/not-rendered.png';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
-import { Card, RestaurantCard, Modal, Map } from '../../components/index';
+import {
+  Card,
+  RestaurantCard,
+  Modal,
+  Map,
+  Loader,
+} from '../../components/index';
 import { useSelector } from 'react-redux';
 
 const Home = () => {
@@ -63,23 +69,30 @@ const Home = () => {
               }}
             />
           </TextField>
-          <CarouselTitle>Close to you</CarouselTitle>
-          <Carousel {...settings}>
-            {restaurants.map((el) => (
-              <Card
-                key={el.place_id}
-                photo={el.photos ? el.photos[0].getUrl() : notRendered}
-                title={el.name}
-              />
-            ))}
-          </Carousel>
-          {restaurants.map((el) => (
-            <RestaurantCard
-              onClick={() => handleOpenModal(el.place_id)}
-              key={el.place_id}
-              restaurant={el}
-            />
-          ))}
+          {restaurants.length > 0 ? (
+            <>
+              {' '}
+              <CarouselTitle>Close to you</CarouselTitle>
+              <Carousel {...settings}>
+                {restaurants.map((el) => (
+                  <Card
+                    key={el.place_id}
+                    photo={el.photos ? el.photos[0].getUrl() : notRendered}
+                    title={el.name}
+                  />
+                ))}
+              </Carousel>
+              {restaurants.map((el) => (
+                <RestaurantCard
+                  onClick={() => handleOpenModal(el.place_id)}
+                  key={el.place_id}
+                  restaurant={el}
+                />
+              ))}{' '}
+            </>
+          ) : (
+            <Loader />
+          )}
         </SearchBox>
       </Container>
       <Map query={query} placeId={placeId} />
