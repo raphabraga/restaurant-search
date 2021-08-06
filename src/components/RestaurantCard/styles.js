@@ -37,6 +37,7 @@ export const RCardAddress = styled.span`
 `;
 
 export const RCardPhoto = styled.img`
+  display: ${(props) => (props.imageLoaded ? 'block' : 'none')};
   width: 100px;
   height: 100px;
   object-fit: cover;

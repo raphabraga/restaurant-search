@@ -19,6 +19,7 @@ import {
   Modal,
   Map,
   Loader,
+  Skeleton,
 } from '../../components/index';
 import { useSelector } from 'react-redux';
 
@@ -97,16 +98,27 @@ const Home = () => {
       </Container>
       <Map query={query} placeId={placeId} />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-        <ModalTitle>{selectedRestaurant?.name}</ModalTitle>
-        <ModalContent>
-          {selectedRestaurant?.formatted_phone_number}
-        </ModalContent>
-        <ModalContent>{selectedRestaurant?.formatted_address}</ModalContent>
-        <ModalContent>
-          {selectedRestaurant?.opening_hours?.open_now
-            ? 'Aberto agora :)'
-            : 'Fechado nesse momento :('}
-        </ModalContent>
+        {selectedRestaurant ? (
+          <>
+            <ModalTitle>{selectedRestaurant?.name}</ModalTitle>
+            <ModalContent>
+              {selectedRestaurant?.formatted_phone_number}
+            </ModalContent>
+            <ModalContent>{selectedRestaurant?.formatted_address}</ModalContent>
+            <ModalContent>
+              {selectedRestaurant?.opening_hours?.open_now
+                ? 'Aberto agora :)'
+                : 'Fechado nesse momento :('}
+            </ModalContent>
+          </>
+        ) : (
+          <>
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+            <Skeleton width="10px" height="10px" />
+          </>
+        )}
       </Modal>
     </Wrapper>
   );
