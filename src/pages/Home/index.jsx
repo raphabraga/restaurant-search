@@ -11,12 +11,13 @@ import logo from '../../assets/logo.svg';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import { Card, RestaurantCard, Modal, Map } from '../../components/index';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
-
+  const { restaurants } = useSelector((state) => state.restaurants);
   const settings = {
     dots: false,
     infinite: true,
@@ -52,9 +53,17 @@ const Home = () => {
           </TextField>
           <CarouselTitle>Close to you</CarouselTitle>
           <Carousel {...settings}>
-            <Card photo={logo} title="Restaurant Name" />
+            {restaurants.map((el) => (
+              <Card
+                key={el.place_id}
+                photo={el.photos ? el.photos[0].getUrl() : null}
+                title={el.name}
+              />
+            ))}
           </Carousel>
-          <RestaurantCard />
+          {restaurants.map((el) => (
+            <RestaurantCard key={el.place_id} restaurant={el} />
+          ))}
         </SearchBox>
       </Container>
       <Map query={query} />

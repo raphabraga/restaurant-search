@@ -1,28 +1,31 @@
-import React from "react";
+import React from 'react';
 import {
   StyRestaurantCard,
   RestaurantInfo,
   RCardTitle,
   RCardAddress,
   RCardPhoto,
-} from "./styles";
-import ReactStars from "react-rating-stars-component";
-import logo from "../../assets/logo.svg";
+} from './styles';
+import ReactStars from 'react-rating-stars-component';
+import logo from '../../assets/logo.svg';
 
-const RestaurantCard = () => (
+const RestaurantCard = ({ restaurant }) => (
   <StyRestaurantCard>
     <RestaurantInfo>
-      <RCardTitle>La Notizia</RCardTitle>
+      <RCardTitle>{restaurant.name}</RCardTitle>
       <ReactStars
         count={5}
         isHalf
         edit={false}
-        value={4}
-        activeColor={"#e7711c"}
+        value={restaurant.rating}
+        activeColor={'#e7711c'}
       />
-      <RCardAddress>Rua Leandro Dupre, 377</RCardAddress>
+      <RCardAddress>{restaurant.vicinity}</RCardAddress>
     </RestaurantInfo>
-    <RCardPhoto src={logo}></RCardPhoto>
+    <RCardPhoto
+      src={restaurant.photos ? restaurant.photos[0].getUrl() : null}
+      alt=""
+    ></RCardPhoto>
   </StyRestaurantCard>
 );
 
